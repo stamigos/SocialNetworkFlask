@@ -1,0 +1,31 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block header %}
+{% endblock %}
+{% block content %}
+    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+    <div class="container">
+        <div class="navbar-header">
+      <!-- Button for smallest screens -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="vOne HTML5 template"></a> </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav pull-right">
+        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+          <li class="active"><a class="btn" href="{{ url_for('logout') }}">LOGOUT</a></li>
+      </ul>
+    </div>
+<h3 style="color:#ffffff;"><b>Searching for "{{query}}":</b></h3>
+{% for object in results %}
+       <li class="list-group-item" style="background-color: transparent;color: #ffffff;border-radius: 3px;"><a href="/lecturer/{{ object.last_name }}">{{object.last_name}} {{ object.first_name }} {{ object.father_name }}</a></li>
+{% endfor %}
+    </div>
+    </div>
+    <!-- Header -->
+<header id="head">
+  <div class="container">
+
+  </div>
+</header>
+<!-- /Header -->
+{% endblock %}
